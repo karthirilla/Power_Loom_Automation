@@ -1,73 +1,110 @@
-Power Automation System for Power Loom and Textile Industry
-The Power Automation System is a comprehensive control solution designed to monitor, automate, and optimize the operations of a power loom or textile industry. This system utilizes a PIC18F4550 microcontroller as its central processing unit, enabling real-time monitoring and control of various mechanical and electrical components involved in the loom's operations. The system is built to enhance productivity, ensure operational safety, and provide real-time data for process management.
+# Power Automation System for Power Loom and Textile Industry
 
-Key Features of the System:
-Microcontroller: The heart of the system is the PIC18F4550 microcontroller, which handles the logic processing, sensor inputs, control signals, and communication interfaces.
+## Overview
 
-Software Platform: Developed using MPLAB IDE with XC8 Compiler, CCS Compiler, and microC for efficient code development. These software platforms ensure that the system is both robust and reliable for industrial applications.
+The **Power Automation System** is an automated solution designed for controlling and monitoring power looms in the textile industry. The system is based on the **PIC18F4550 microcontroller** and is developed using **MPLAB IDE**, **XC8 Compiler**, **CCS Compiler**, and **microC** for the software. It integrates a range of industrial sensors and advanced motor control techniques to automate the loom's operations, ensuring enhanced productivity, safety, and process optimization.
 
-Industrial-Level Automation: Designed to automate processes like monitoring motor activity, detecting thread cuts, controlling the loom's motor, and providing safety mechanisms for power shutdown.
+### Key Features
 
-System Description
-1. Motor Monitoring and Control:
-AC Motor Control: The system is capable of controlling the loom's motor, ensuring it operates within the specified range and stopping it at the correct angle. This precise motor control is crucial for the proper functioning of the loom.
+- **Central Controller**: Uses **PIC18F4550** microcontroller for real-time monitoring and control.
+- **AC Motor Control**: Employs **DC injection braking** for immediate motor stoppage.
+- **Thread Monitoring**: Utilizes **photodiode sensors** and **proximity sensors** for thread detection (warp and weft).
+- **Motor Position and Warp Count Detection**: Monitors the loom’s position and counts warp threads.
+- **Industrial Standards**: Features electrical isolation using **PC817 optocouplers** and **ULN2008** driver for controlling high-load components.
+- **Safety Features**: Stops the motor if any thread breaks or if the loom reaches a specified position.
 
-DC Injection Braking: A DC injection braking mechanism is used to bring the motor to an immediate stop by injecting a DC current into the AC motor windings. This allows for quick and safe motor stoppage, improving the safety and efficiency of the system.
+## System Components
 
-2. Warp and Weft Thread Monitoring:
-Warp Count Detection: The system uses industrial proximity sensors to monitor the warp (longitudinal threads) on the loom. The proximity sensors accurately count the warp and ensure that the loom operates at the correct tension and pattern.
+- **Microcontroller**: **PIC18F4550** for processing logic, monitoring sensors, and controlling actuators.
+- **Sensors**: 
+  - **Photodiode Sensors**: For detecting thread breaks (weft and warp).
+  - **Industrial Proximity Sensors**: For monitoring warp count and loom position.
+- **Motor Control**: 
+  - **AC Motor** controlled via **12V relays** and **DC injection braking**.
+  - **DC Injection Braking**: For quick stopping of the motor in case of thread breakage or loom misalignment.
+- **Safety Isolation**: 
+  - **PC817 Optocouplers** for electrical isolation between the microcontroller and high-voltage components.
+- **Motor Driver**: **ULN2008** driver for output control to relay circuits.
+- **Weft Thread Detection**: Implemented using an **LM358 operational amplifier** comparator circuit.
 
-Weft Thread Cut Detection: An analog LM358 operational amplifier comparator circuit is employed to detect weft thread cuts. The system continuously monitors the weft (horizontal threads) and immediately halts the loom operation in case of a thread break, ensuring minimal damage and waste.
+## Features in Detail
 
-3. Sensor-Based Monitoring System:
-Photodiode Sensing Technology: The system uses photodiode sensors for thread break detection. These sensors provide accurate, real-time feedback about the condition of the threads, ensuring quick action in case of thread issues, preventing potential damage to the machinery or fabric.
+### 1. **Motor Monitoring and Control**
+The system controls the AC motor driving the loom, ensuring that it operates at the correct speed and position. It can immediately stop the motor using the **DC injection braking** mechanism, which injects a DC current into the motor windings to halt the motor instantly.
 
-Industrial Proximity Sensors: These sensors are used for monitoring both warp count and loom position. They ensure precise counting of the warp thread and detect changes in loom positions (such as the angle) for accurate operations.
+### 2. **Thread Monitoring (Warp and Weft)**
+- **Warp Thread Count**: Monitored using industrial **proximity sensors**, which track the number of threads in the loom and ensure the loom operates within the required parameters.
+- **Weft Thread Cut Detection**: Utilizes an **LM358 op-amp comparator** circuit to detect if a weft thread has been cut or broken, triggering an automatic stop of the motor.
 
-4. User Interface and Control:
-Multiple Input Buttons: The user interface includes various buttons such as Stop, Run, Break, and Inch, allowing operators to manually control the loom, adjust settings, and pause operations when necessary.
+### 3. **User Interface and Control**
+The system allows the user to interact with the loom via several input buttons:
+- **Stop**: To halt the loom motor.
+- **Run**: To start the motor.
+- **Break**: To immediately stop the motor in case of emergency or thread issues.
+- **Inch**: Allows precise, small adjustments to the loom’s position for fine-tuning.
 
-Feedback Display: The system could be connected to a display unit for showing feedback such as motor status, thread count, and current operation mode.
+### 4. **Electrical Isolation and Protection**
+The system incorporates **PC817 optocouplers** to isolate the high-voltage AC components from the low-voltage control system. This prevents damage to the microcontroller and ensures safe operation. The power supply also features isolation to avoid any interference from high-voltage spikes.
 
-5. Power Supply and Isolation:
-Optocoupler Isolation (PC817): To ensure the safety of the control system, PC817 optocouplers are used for electrical isolation between the high-voltage AC components and the microcontroller. This isolation protects the microcontroller from voltage spikes, surges, and other electrical disturbances from the loom.
+### 5. **Motor Driver and Relay Control**
+The **ULN2008** driver is used to interface with the **12V relays**, controlling the AC motor. The relays provide switching capabilities for high-load devices like the motor, while maintaining electrical isolation.
 
-Power Supply Isolation: The entire system operates on a fully isolated power supply. The power supply is designed to safely handle high-voltage and industrial environments, providing stable and reliable operation.
+---
 
-ULN2008 Driver: The ULN2008 Darlington driver is used to drive the output loads such as relays and other actuators. This IC ensures that the control signals from the microcontroller can safely drive the external loads without overloading the system.
+## System Workflow
 
-Relay Control: A 12V relay driver is employed to control the AC motor's operation, allowing the system to stop, start, and pause the motor as needed based on the real-time inputs and conditions.
+1. **Startup**: Upon powering up, the system initializes sensors, motor control, and the microcontroller's logic. It checks for any user inputs and prepares the system for operation.
+2. **Motor Operation**: The motor starts operating based on user input or automated instructions. It continuously monitors warp count, thread condition, and motor position.
+3. **Thread Monitoring**: The sensors (photodiode and proximity sensors) monitor the loom's threads, ensuring there are no breaks or malfunctions. If any issues are detected, the system halts the motor via DC injection braking.
+4. **User Interaction**: The user can manually control the system using the control buttons (**Stop**, **Run**, **Break**, **Inch**) to manage the loom's operations.
+5. **Safety and Shutdown**: The system continuously monitors motor speed, thread status, and loom position. If any anomalies or thread cuts are detected, the system stops the motor immediately to avoid further damage.
 
-Hardware Components and Circuitry
-PIC18F4550 Microcontroller: This microcontroller acts as the central controller for the system, receiving input from sensors, processing logic, and sending control signals to the motor, relays, and other components.
+---
 
-Industrial Proximity Sensors: Used for both warp count detection and position detection, these sensors send feedback to the microcontroller to help automate the process and ensure the loom is operating correctly.
+## Circuit Diagram
 
-Photodiode Sensors: These sensors are used to detect the breakage of the thread (warp or weft). Upon detecting a cut, the system will automatically stop the motor, preventing further damage.
+A detailed circuit diagram will be included to illustrate the connections between the microcontroller, sensors, relays, and motor control systems. The diagram will highlight the use of isolation techniques and motor control interfaces.
 
-Relay Driver: A 12V relay is used to control the AC motor, providing electrical isolation between the low voltage control system and the high-voltage motor.
+---
 
-Optocoupler (PC817): Ensures electrical isolation between different components, protecting the sensitive control circuitry from high-voltage surges or spikes.
+## Hardware Components List
 
-DC Injection Braking Mechanism: Provides a mechanism for rapid stopping of the motor by injecting DC current into the motor windings, allowing for quick and safe halting of the motor.
+1. **PIC18F4550 Microcontroller**
+2. **PC817 Optocouplers**
+3. **ULN2008 Driver IC**
+4. **Photodiode Sensors**
+5. **Industrial Proximity Sensors**
+6. **LM358 Operational Amplifier**
+7. **DC Injection Braking Circuit**
+8. **12V Relays**
+9. **AC Motor**
+10. **Power Supply Components (12V, isolated)**
 
-LM358 Operational Amplifier: Used as a comparator in the weft thread cut detection circuit. The operational amplifier compares the voltage signal from the sensors and triggers the stop signal when a break in the weft thread is detected.
+---
 
-ULN2008 Driver IC: Drives the relay and motor control circuits, ensuring that the system can handle higher currents without damaging the microcontroller.
+## Software and Development Environment
 
-System Workflow
-Startup: When the system is powered on, the microcontroller checks for any input from the operator and initializes the sensors, motor control, and thread detection systems.
+- **MPLAB IDE**: Primary development environment for coding.
+- **XC8 Compiler**: Compiler for PIC18F4550 code.
+- **CCS Compiler**: Alternative compiler for ease of integration.
+- **microC**: Used for specific software functionalities and features.
 
-Motor Operation: The motor begins operating in Run mode. The microcontroller continually monitors the motor's angle, warp thread count, and weft thread condition.
+---
 
-Thread Monitoring: Photodiode and proximity sensors monitor the threads continuously. If a break is detected, the microcontroller immediately stops the motor using the DC injection braking mechanism.
+## Contributing
 
-User Input: The operator can interact with the system through input buttons to stop, start, or adjust the loom's operation. The system responds to these inputs in real time.
+If you would like to contribute to this project, feel free to fork the repository, submit issues, or send pull requests. Any improvements, bug fixes, or new features are welcome.
 
-Safety Features: The system ensures the motor is stopped when the loom reaches a specific angle or when a thread break is detected, preventing damage to the machine or fabric.
+---
 
-Conclusion
-The Power Automation System for the power loom and textile industry is a robust, efficient, and reliable solution for automating and controlling loom operations. By integrating advanced technologies like proximity sensors, photodiode sensing, DC injection braking, and optocoupler isolation, this system enhances operational efficiency, improves safety, and minimizes downtime in industrial textile production.
+## License
 
-With its ability to monitor motor operations, detect thread breaks, and control the loom's motor precisely, this system offers significant advantages for the textile industry, especially in terms of reliability, productivity, and automation.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments
+
+- Thanks to **MPLAB IDE**, **CCS Compiler**, **microC**, and the open-source community for providing great tools for embedded development.
+- Special thanks to all contributors for their support and contributions to this project.
 
