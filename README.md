@@ -4,6 +4,16 @@
 
 The **Power Automation System** is an automated solution designed for controlling and monitoring power looms in the textile industry. The system is based on the **PIC18F4550 microcontroller** and is developed using **MPLAB IDE**, **XC8 Compiler**, **CCS Compiler**, and **microC** for the software. It integrates a range of industrial sensors and advanced motor control techniques to automate the loom's operations, ensuring enhanced productivity, safety, and process optimization.
 
+## Version 1
+![V1 Image](https://github.com/karthirilla/Power_Loom_Automation/blob/main/LOOM_AUTOMATION_V1.png)
+
+## Version 2
+![V2 Image](https://github.com/karthirilla/Power_Loom_Automation/blob/main/LOOM_AUTOMATION_V2.jpg)
+
+## Version 3
+![V3 Image](https://github.com/karthirilla/Power_Loom_Automation/blob/main/LOOM_AUTOMATION_V3.png)
+
+
 ### Key Features
 
 - **Central Controller**: Uses **PIC18F4550** microcontroller for real-time monitoring and control.
