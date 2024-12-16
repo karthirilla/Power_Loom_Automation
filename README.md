@@ -4,14 +4,26 @@
 
 The **Power Automation System** is an automated solution designed for controlling and monitoring power looms in the textile industry. The system is based on the **PIC18F4550 microcontroller** and is developed using **MPLAB IDE**, **XC8 Compiler**, **CCS Compiler**, and **microC** for the software. It integrates a range of industrial sensors and advanced motor control techniques to automate the loom's operations, ensuring enhanced productivity, safety, and process optimization.
 
-## Version 1
-![V1 Image](https://github.com/karthirilla/Power_Loom_Automation/blob/main/LOOM_AUTOMATION_V1.png)
+# Power Loom Automation
 
-## Version 2
-![V2 Image](https://github.com/karthirilla/Power_Loom_Automation/blob/main/LOOM_AUTOMATION_V2.jpg)
+## Versions Overview
 
-## Version 3
-![V3 Image](https://github.com/karthirilla/Power_Loom_Automation/blob/main/LOOM_AUTOMATION_V3.png)
+| **Version 1**                           | **Version 2**                           |
+|------------------------------------------|------------------------------------------|
+| ![V1 Image](https://github.com/karthirilla/Power_Loom_Automation/blob/main/LOOM_AUTOMATION_V1.png) | ![V2 Image](https://github.com/karthirilla/Power_Loom_Automation/blob/main/LOOM_AUTOMATION_V2.jpg) |
+
+| **Version 3** (Image 1)                 | **Version 3** (Image 2)                 |
+|------------------------------------------|------------------------------------------|
+| ![V3 Image 1](https://github.com/karthirilla/Power_Loom_Automation/blob/main/LOOM_AUTOMATION_V3_1.png) | ![V3 Image 2](https://github.com/karthirilla/Power_Loom_Automation/blob/main/LOOM_AUTOMATION_V3_2.jpg) |
+
+| **Version 4** (Image 1)                 | **Version 4** (Image 2)                 |
+|------------------------------------------|------------------------------------------|
+| ![V4 Image 1](https://github.com/karthirilla/Power_Loom_Automation/blob/main/LOOM_AUTOMATION_V4_1.jpg) | ![V4 Image 2](https://github.com/karthirilla/Power_Loom_Automation/blob/main/LOOM_AUTOMATION_V4_2.jpg) |
+
+| **Version 4** (Image 3)                 |                                          |
+|------------------------------------------|------------------------------------------|
+| ![V4 Image 3](https://github.com/karthirilla/Power_Loom_Automation/blob/main/LOOM_AUTOMATION_V4_3.jpg) |                                          |
+
 
 
 ### Key Features
